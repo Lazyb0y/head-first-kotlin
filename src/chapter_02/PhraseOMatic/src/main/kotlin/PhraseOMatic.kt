@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
-    initialCodeBlocks()
+    codeMagnets()
 }
 
 fun initialCodeBlocks() {
@@ -17,4 +17,17 @@ fun initialCodeBlocks() {
 
     val phrase = "${wordArray1[rand1]} ${wordArray2[rand2]} ${wordArray3[rand3]}"
     println(phrase)
+}
+
+fun codeMagnets() {
+    val index = arrayOf(1, 3, 4, 2)
+    val fruit = arrayOf("Apple", "Banana", "Cherry", "Blueberry", "Pomegranate")
+
+    var x = 0
+    var y: Int
+    while (x < 4) {
+        y = index[x]
+        println("Fruit = ${fruit[y]}")
+        x += 1
+    }
 }
