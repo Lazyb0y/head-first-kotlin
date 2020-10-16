@@ -12,10 +12,29 @@ fun getGameChoice(optionsParam: Array<String>): String {
 }
 
 fun getUserChoice(optionsParam: Array<String>): String {
-    print("Please enter one of the following:")
-    for (item in optionsParam) print(" $item")
-    println(".")
+    var isValidChoice = false
+    var userChoice = ""
 
-    val userInput = readLine()
-    return userInput.toString()
+    while (!isValidChoice) {
+        // Ask the user for their choice
+        print("Please enter one of the following:")
+        for (item in optionsParam) print(" $item")
+        println(".")
+
+        // Read the user input
+        val userInput = readLine()
+
+        // Validate the user input
+        if (userInput != null && userInput in optionsParam) {
+            isValidChoice = true
+            userChoice = userInput
+        }
+
+        // Informing user for invalid input if any
+        if (!isValidChoice) {
+            println("You must enter a valid choice!")
+        }
+    }
+
+    return userChoice
 }
