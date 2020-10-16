@@ -40,15 +40,14 @@ fun getUserChoice(optionsParam: Array<String>): String {
 }
 
 fun printResult(userChoice: String, gameChoice: String) {
-    var result: String
-
     // Calculating the result
-    if (userChoice == gameChoice) result = "Tie!"
-    else if ((userChoice == "Rock" && gameChoice == "Scissors") ||
-        (userChoice == "Paper" && gameChoice == "Rock") ||
-        (userChoice == "Scissors" && gameChoice == "Paper")
-    ) result = "You win!"
-    else result = "You lose!"
+    val result: String =
+        if (userChoice == gameChoice) "Tie!"
+        else if ((userChoice == "Rock" && gameChoice == "Scissors") ||
+            (userChoice == "Paper" && gameChoice == "Rock") ||
+            (userChoice == "Scissors" && gameChoice == "Paper")
+        ) "You win!"
+        else "You lose!"
 
     // Print the result
     println("You chose $userChoice. I chose $gameChoice. $result")
