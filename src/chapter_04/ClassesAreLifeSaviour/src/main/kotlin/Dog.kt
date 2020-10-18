@@ -1,6 +1,12 @@
-class Dog(val name: String, var weight: Int, breed_param: String) {
+class Dog(val name: String, weight_param: Int, breed_param: String) {
     var activities = arrayOf("Walks")
     val breed = breed_param.toUpperCase()
+    var weight = weight_param
+        set(value) {
+            if (value > 0) field = value
+        }
+    val weightInKgs: Double
+        get() = weight / 2.2
 
     lateinit var temperament: String
 
