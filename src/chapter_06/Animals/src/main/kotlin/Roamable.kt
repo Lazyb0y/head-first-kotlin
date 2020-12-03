@@ -1,0 +1,4 @@
+interface Roamable {
+
+    fun roam()
+}
