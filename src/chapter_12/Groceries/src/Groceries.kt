@@ -26,4 +26,8 @@ fun main() {
     println("groceryNames: $groceryNames")
     val halfUnitPrice = groceries.map { it.unitPrice * 0.5 }
     println("halfUnitPrice: $halfUnitPrice")
+
+    val newPrices = groceries.filter { it.unitPrice > 3.0 }
+        .map { it.unitPrice * 2 }
+    println("newPrices: $newPrices")
 }
