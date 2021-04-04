@@ -30,4 +30,25 @@ fun main() {
     val newPrices = groceries.filter { it.unitPrice > 3.0 }
         .map { it.unitPrice * 2 }
     println("newPrices: $newPrices")
+
+    println("Grocery names:")
+    groceries.forEach { println(it.name) }
+
+    println("Groceries with unitPrice > 3.0")
+    groceries.filter { it.unitPrice > 3.0 }
+        .forEach { println(it.name) }
+
+    var itemNames = ""
+    groceries.forEach { itemNames += "${it.name} " }
+    println("itemNames: $itemNames")
+
+    val ints = listOf(1, 2, 3)
+    val sumOfInts = ints.fold(0) { runningSum, item -> runningSum + item }
+    println("sumoOfInts: $sumOfInts")
+
+    val productOfInts = ints.fold(1) { runningProduct, item -> runningProduct * item }
+    println("productOfInts: $productOfInts")
+
+    val names = groceries.fold("") { string, item -> string + " ${item.name}" }
+    println("names: $names")
 }
