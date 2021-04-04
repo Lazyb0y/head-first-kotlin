@@ -16,4 +16,9 @@ fun main() {
     println("sumQuantity: $sumQuantity")
     val totalPrice = groceries.sumByDouble { it.quantity * it.unitPrice }
     println("totalPrice: $totalPrice")
+
+    val vegetables = groceries.filter { it.category == "Vegetable" }
+    println("vegetables: $vegetables")
+    val notFrozen = groceries.filterNot { it.category == "Frozen" }
+    println("notFrozen: $notFrozen")
 }
