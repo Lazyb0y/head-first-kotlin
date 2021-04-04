@@ -21,4 +21,9 @@ fun main() {
     println("vegetables: $vegetables")
     val notFrozen = groceries.filterNot { it.category == "Frozen" }
     println("notFrozen: $notFrozen")
+
+    val groceryNames = groceries.map { it.name }
+    println("groceryNames: $groceryNames")
+    val halfUnitPrice = groceries.map { it.unitPrice * 0.5 }
+    println("halfUnitPrice: $halfUnitPrice")
 }
