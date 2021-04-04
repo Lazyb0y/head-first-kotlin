@@ -10,6 +10,10 @@ fun convertFive(converter: (Int) -> Double): Double {
     return result
 }
 
+fun combine(lambda1: (Double) -> Double, lambda2: (Double) -> Double): (Double) -> Double {
+    return { x: Double -> lambda2(lambda1(x)) }
+}
+
 fun main() {
     val addFive = { x: Int -> x + 5 }
     println("Pass 6 to addFive: ${addFive(6)}")
@@ -29,4 +33,14 @@ fun main() {
 
     convert(20.0) { it * 1.8 + 32 }
     convertFive { it * 1.8 + 32 }
+
+    // Define two conversion lambdas
+    val kgsToPound = { x: Double -> x * 2.204623 }
+    val poundsToUSTones = { x: Double -> x / 2000.0 }
+
+    // Combine the two lambdas to create a new one
+    val kgsToUsTones = combine(kgsToPound, poundsToUSTones)
+
+    // Invoke the kgsToUSTones lambda
+    var usTones = kgsToUsTones(1000.0)
 }
