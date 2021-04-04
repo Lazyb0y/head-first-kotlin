@@ -1,3 +1,5 @@
+typealias DoubleConversion = (Double) -> Double
+
 fun convert(x: Double, converter: (Double) -> Double): Double {
     val result = converter(x)
     println("$x is converted to $result")
@@ -10,7 +12,7 @@ fun convertFive(converter: (Int) -> Double): Double {
     return result
 }
 
-fun combine(lambda1: (Double) -> Double, lambda2: (Double) -> Double): (Double) -> Double {
+fun combine(lambda1: DoubleConversion, lambda2: DoubleConversion): DoubleConversion {
     return { x: Double -> lambda2(lambda1(x)) }
 }
 
